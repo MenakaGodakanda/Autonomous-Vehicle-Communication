@@ -52,23 +52,45 @@ sudo ip link add dev vcan0 type vcan
 sudo ip link set up vcan0
 ```
 
-- To automate this setup, you can use the provided setup_can.sh script.
+- To automate this setup, you can use the provided `setup.sh` script.
+
+#### Run the setup script:
+```
+./setup.sh
+```
+![Screenshot 2025-02-24 152354](https://github.com/user-attachments/assets/67caf45a-5d84-4c65-a61b-b89980908933)
+
+#### Verify the interface:
+```
+ip link show vcan0
+```
+![Screenshot 2025-02-24 150651](https://github.com/user-attachments/assets/a1979843-faca-4d08-adea-29b3428ac786)
 
 ### 5. Compile and Run the C++ CAN Sender
 ```
 g++ src/cpp_can_sender.cpp -o cpp_can_sender
 ./cpp_can_sender
 ```
+![Screenshot 2025-02-24 151057](https://github.com/user-attachments/assets/b6a486ad-5ad6-4ad5-b5f3-1795e9dfe573)
 
-### 6. Run the Python CAN Sender
+### 6. Compile and Run the C++ CAN Receiver
+```
+g++ src/cpp_can_receiver.cpp -o cpp_can_receiver
+./cpp_can_receiver
+```
+![Screenshot 2025-02-24 151341](https://github.com/user-attachments/assets/86351079-da5d-4297-a426-757143671a92)
+
+### 7. Run the Python CAN Sender
 ```
 python3 src/python_can_sender.py
 ```
+![Screenshot 2025-02-24 151916](https://github.com/user-attachments/assets/16d7fba5-600e-4716-8e34-df2b51e6fbbd)
 
-### 7. Run the Python CAN Receiver (Continuous Listening)
+### 8. Run the Python CAN Receiver (Continuous Listening)
 ```
 python3 src/python_can_receiver.py
 ```
+![Screenshot 2025-02-24 152034](https://github.com/user-attachments/assets/8fce1730-0bd9-4f02-9952-cd178f3c5916)
 
 ## Testing with candump
 
@@ -77,12 +99,7 @@ To monitor CAN messages, open a terminal and run:
 candump vcan0
 ```
 You should see output like:
-
-## Example Output
-
-### Python CAN Receiver Output
-
-### `candump` Output
+![Screenshot 2025-02-24 152201](https://github.com/user-attachments/assets/26758784-bbc5-4338-8179-7a32d4cbb88f)
 
 ## File Structure
 ```
